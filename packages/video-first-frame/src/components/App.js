@@ -3,6 +3,9 @@ import { h, Component } from 'preact';
 
 import extractFirstFrame from '../lib/extract-first-frame';
 
+import AssetCard from './AssetCard';
+import Error from './Error';
+
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -195,22 +198,11 @@ export default class App extends Component {
   };
 
   // eslint-disable-next-line class-methods-use-this
-  render(props, { src, caption, hint, error }) {
+  render(props, { src, caption, error }) {
     return (
       <div>
-        <figure class="asset-card">
-          {src && (
-            <div class="cf-thumbnail">
-              <img src={src} class="thumbnail" />
-            </div>
-          )}
-          {caption && (
-            <figcaption class="asset-card__title">{caption}</figcaption>
-          )}
-        </figure>
-
-        {hint && <div class="cf-form-hint">{hint}</div>}
-        {error && <div class="cf-field-error">{error}</div>}
+        {src && <AssetCard src={src} caption={caption} />}
+        {error && <Error>{error}</Error>}
       </div>
     );
   }
