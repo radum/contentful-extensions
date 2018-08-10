@@ -132,10 +132,7 @@ function initExtension(extension) {
       field.setValue(value);
       inputEl.value = value;
     } catch (e) {
-      // eslint-disable-next-line no-console
-      console.error(e);
-      const error = e.message ? e.message : 'An error occured';
-      showError(error);
+      showError(e);
     }
   }
 
@@ -144,21 +141,20 @@ function initExtension(extension) {
       field.removeValue();
       inputEl.value = '';
     } catch (e) {
-      // eslint-disable-next-line no-console
-      console.error(e);
-      const error = e.message ? e.message : 'An error occured';
-      showError(error);
+      showError(e);
     }
   }
 
   // Display an error message below the field.
   function showError(error) {
-    if (!error || typeof error !== 'undefined') {
-      // eslint-disable-next-line no-console
-      console.error('Image Data URI extension: Error must be a string.');
+    if (!error) {
       return;
     }
-    errorEl.innerHTML = error;
+    // eslint-disable-next-line no-console
+    console.error(error);
+    const e =
+      typeof error === 'string' ? error : error.message || 'An error occured';
+    errorEl.innerHTML = e;
   }
 
   // Remove the error message below the field.

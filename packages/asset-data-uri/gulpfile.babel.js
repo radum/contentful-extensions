@@ -17,6 +17,7 @@ const BUILD = './build';
 const DIST = './dist';
 const PATHS = {
   scripts: `${SRC}/index.js`,
+  lib: `${SRC}/lib/**/*.js`,
   styles: `${SRC}/index.scss`,
   html: `${SRC}/index.html`
 };
@@ -62,7 +63,7 @@ const html = () => gulp.src(PATHS.html).pipe(gulp.dest(BUILD));
 
 // Serve and watch for changes so we don't have to run `gulp` after each change.
 const watch = () => {
-  gulp.watch(PATHS.scripts, gulp.series(scripts, reload));
+  gulp.watch([PATHS.scripts, PATHS.lib], gulp.series(scripts, reload));
   gulp.watch(PATHS.styles, gulp.series(styles, reload));
   gulp.watch(PATHS.html, gulp.series(html, reload));
 };
