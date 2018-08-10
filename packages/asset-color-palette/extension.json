@@ -1,0 +1,34 @@
+{
+  "name": "Asset Color Palette",
+  "id": "asset-color-palette",
+  "fieldTypes": ["Symbols"],
+  "srcdoc": "./dist/index.html",
+  "sidebar": false,
+  "parameters": {
+    "instance": [
+      {
+        "id": "helpText",
+        "type": "Symbol",
+        "name": "Help text",
+        "description": "This help text will show up below the field."
+      },
+      {
+        "id": "assetFieldId",
+        "type": "Symbol",
+        "name": "Asset field id",
+        "description":
+          "The id of the asset field from which the colors should be extracted.",
+        "required": true
+      },
+      {
+        "id": "numberOfColors",
+        "type": "Number",
+        "name": "Number of colors",
+        "description":
+          "The number of colors to extract from the image or video. Must be between 1 and 10, default 5.",
+        "default": 5,
+        "required": true
+      }
+    ]
+  }
+}

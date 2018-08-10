@@ -13,12 +13,15 @@ _At [SumUp](https://sumup.com/) we use [Contentful](https://contentful.com) as t
 ## Table of Contents <!-- omit in toc -->
 
 - [Extensions](#extensions)
-  - [Image Data URI](#image-data-uri)
-  - [Localized Preview Links](#localized-preview-links)
+  - [Asset Brightness](#asset-brightness)
+  - [Asset Color Palette](#asset-color-palette)
+  - [Asset Data URI](#asset-data-uri)
   - [Card Schemes](#card-schemes)
+  - [Localized Preview Links](#localized-preview-links)
+  - [Product Selector](#product-selector)
 - [Development](#development)
+  - [API Reference](#api-reference)
   - [Getting started](#getting-started)
-  - [API reference](#api-reference)
   - [Creating a new extension](#creating-a-new-extension)
   - [Local dev](#local-dev)
   - [Publishing to Contentful](#publishing-to-contentful)
@@ -27,23 +30,23 @@ _At [SumUp](https://sumup.com/) we use [Contentful](https://contentful.com) as t
 
 ## Extensions
 
-### [Image Data URI](https://github.com/sumup/contentful-extensions/tree/master/packages/image-data-uri)
+### [Asset Brightness](https://github.com/sumup/contentful-extensions/tree/master/packages/asset-brightness)
 
-This extension generates a data URI for an image asset. Useful for lazyloading images. Works with `Text` field types.
+This extension automatically calculates the average brightness of an image or video asset. Works with `Number` field types.
 
-![Screenshot of image data URI extension](packages/image-data-uri/screenshot.png)
+<img alt="Screenshot of asset brightness extension" src="packages/asset-brightness/screenshot.png" width="500"/>
 
-### [Image Color Palette](https://github.com/sumup/contentful-extensions/tree/master/packages/image-color-palette)
+### [Asset Color Palette](https://github.com/sumup/contentful-extensions/tree/master/packages/asset-color-palette)
 
-This extension automatically generates a palette of the most dominant colors in an image. Works with `Symbols` field types.
+This extension automatically generates a palette of the most dominant colors in an image or video asset. Works with `Symbols` field types.
 
-<img alt="Screenshot of image color palette extension" src="packages/image-color-palette/screenshot.png" width="700"/>
+<img alt="Screenshot of asset color palette extension" src="packages/asset-color-palette/screenshot.png" width="700"/>
 
-### [Image Brightness](https://github.com/sumup/contentful-extensions/tree/master/packages/image-brightness)
+### [Asset Data URI](https://github.com/sumup/contentful-extensions/tree/master/packages/asset-data-uri)
 
-This extension automatically calculates the average brightness of an image. Works with `Number` field types.
+This extension generates a data URI for an image or video asset. Useful for lazyloading images. Works with `Text` field types.
 
-<img alt="Screenshot of image brightness extension" src="packages/image-brightness/screenshot.png" width="500"/>
+![Screenshot of asset data URI extension](packages/asset-data-uri/screenshot.png)
 
 ### [Card Schemes](https://github.com/sumup/contentful-extensions/tree/master/packages/card-schemes)
 
@@ -68,8 +71,8 @@ This extension provides a visual editor to preview and select products. Works wi
 This [quick introduction](https://www.contentful.com/developers/docs/concepts/uiextensions/) is a good place to get started with UI extensions. For more advanced and creative use cases, read this [blog post](https://www.contentful.com/blog/2017/10/09/creating-ui-extensions-with-contentful/).
 
 ### API Reference
- Refer to the [official SDK documentation](https://github.com/contentful/ui-extensions-sdk/blob/master/docs/ui-extensions-sdk-frontend.md#extensionspace) for a list of available methods. You can also look through the existing extension files for inspiration.
 
+Refer to the [official SDK documentation](https://github.com/contentful/ui-extensions-sdk/blob/master/docs/ui-extensions-sdk-frontend.md#extensionspace) for a list of available methods. You can also look through the existing extension files for inspiration.
 
 ### Getting started
 
