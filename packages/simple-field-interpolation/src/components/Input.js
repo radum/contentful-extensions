@@ -18,7 +18,7 @@ export default function Input({ preview, id, ...props }) {
       )}
       <a
         class="docs"
-        href="https://www.sumup.com"
+        href="https://sumupteam.atlassian.net/wiki/spaces/DEV/pages/549257252/Website+variables"
         target="_blank"
         rel="noopener noreferrer"
       >
