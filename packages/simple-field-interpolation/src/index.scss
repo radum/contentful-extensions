@@ -1,0 +1,29 @@
+$field-margin-top: 0.34em;
+
+body {
+  margin: 0;
+}
+
+.interpolate {
+  color: #a9b9c0;
+  font-style: italic;
+  display: block;
+  margin-top: $field-margin-top;
+
+  .interpolate-preview {
+    color: #000;
+    font-style: normal;
+    &.error {
+      color: red;
+    }
+  }
+}
+
+.docs {
+  font-size: 95%;
+  display: block;
+  margin-top: $field-margin-top;
+  &:hover {
+    text-decoration: underline;
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "simpleFieldInterpolation",
+  "id": "simple-field-interpolation",
+  "fieldTypes": ["Symbol"],
+  "srcdoc": "./dist/index.html",
+  "sidebar": false
+}
