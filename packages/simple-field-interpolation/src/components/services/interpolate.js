@@ -15,15 +15,11 @@ const interpolate = (string, values, delimiters = {}) => {
     return '';
   }
 
-  try {
-    const delimiterRegex = createDelimiterRegex(delimiters);
-    templateSettings.interpolate = delimiterRegex;
-    const parsedString = template(string);
+  const delimiterRegex = createDelimiterRegex(delimiters);
+  templateSettings.interpolate = delimiterRegex;
+  const parsedString = template(string);
 
-    return parsedString(values);
-  } catch (e) {
-    return e;
-  }
+  return parsedString(values);
 };
 
 export default interpolate;

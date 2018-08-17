@@ -2,6 +2,8 @@
 import { h, Component } from 'preact';
 
 import Input from './Input';
+import Preview from './Preview';
+import Error from './Error';
 import interpolate from './services/interpolate';
 import data from './services/data';
 
@@ -10,7 +12,9 @@ export default class App extends Component {
     super(props);
 
     this.state = {
-      value: props.field.getValue()
+      value: props.field.getValue(),
+      preview: {},
+      error: ''
     };
   }
 
@@ -30,7 +34,9 @@ export default class App extends Component {
    * working on the same entry).
    */
   handleValueChange = (value = '') => {
-    this.setState({ value });
+    this.setState({ value }, () => {
+      this.getPreview(value);
+    });
   };
 
   /**
@@ -38,25 +44,38 @@ export default class App extends Component {
    */
   handleChange = event => {
     const { value } = event.target;
-    this.setState({ value });
+    this.setState({ value }, () => {
+      this.getPreview(value);
+    });
 
     if (value === '') {
-      // this.props.field.setInvalid(true);
       this.props.field.removeValue();
     } else {
       this.props.field.setValue(value);
     }
   };
 
+  getPreview(value) {
+    try {
+      const preview = interpolate(value, data);
+      this.props.field.setInvalid(false);
+      this.setState({ preview, error: '' });
+    } catch (e) {
+      const error =
+        e.message || 'An error occured. Please check the input value.';
+      this.props.field.setInvalid(true);
+      this.setState({ preview: value, error });
+    }
+  }
+
   // eslint-disable-next-line class-methods-use-this
-  render({}, { value }) {
+  render({}, { value, preview, error }) {
     return (
-      <Input
-        onInput={this.handleChange}
-        value={value}
-        preview={interpolate(value, data)}
-        id="extension-input"
-      />
+      <div>
+        <Input onInput={this.handleChange} value={value} id="extension-input" />
+        <Error>{error}</Error>
+        <Preview preview={preview} />
+      </div>
     );
   }
 }

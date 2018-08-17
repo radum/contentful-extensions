@@ -66,6 +66,14 @@ This extension provides a visual editor to preview and select products. Works wi
 
 ![Screenshot of product selector extension](packages/products/screenshot.png)
 
+# Simple Field interpolation
+
+This extension provides a visual editor to preview and edit text content with interpolated variables. Works with the `Symbols` field type.
+
+
+![Screenshot of simple field interpolation](packages/simple-field-interpolation/screenshot.png)
+
+
 ## Development
 
 This [quick introduction](https://www.contentful.com/developers/docs/concepts/uiextensions/) is a good place to get started with UI extensions. For more advanced and creative use cases, read this [blog post](https://www.contentful.com/blog/2017/10/09/creating-ui-extensions-with-contentful/).

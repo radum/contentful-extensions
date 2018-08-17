@@ -1,5 +1,5 @@
 {
-  "name": "simpleFieldInterpolation",
+  "name": "Interpolation Preview",
   "id": "simple-field-interpolation",
   "fieldTypes": ["Symbol"],
   "srcdoc": "./dist/index.html",

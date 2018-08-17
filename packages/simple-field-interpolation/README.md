@@ -1,5 +1,6 @@
-# simpleFieldInterpolation
+# Simple Field interpolation
 
-This extension provides […]. Works with `[…]` field types.
+This extension provides a visual editor to preview and edit text content with interpolated variables. Works with the `Symbols` field type.
 
-![screenshot](https://example.org/screenshot.png)
+
+![screenshot](screenshot.png)
