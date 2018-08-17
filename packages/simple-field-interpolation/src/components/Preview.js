@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import { h } from 'preact';
 
-export default function Preview({ preview }) {
+export default function Preview({ preview, docsUrl }) {
   return (
     <div>
       {preview !== '' && (
@@ -12,12 +12,7 @@ export default function Preview({ preview }) {
           </span>
         </div>
       )}
-      <a
-        class="docs"
-        href="https://sumupteam.atlassian.net/wiki/spaces/DEV/pages/549257252/Website+variables"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <a class="docs" href={docsUrl} target="_blank" rel="noopener noreferrer">
         Click here to see documentation and available variables
       </a>
     </div>

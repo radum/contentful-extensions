@@ -1,7 +1,21 @@
 {
   "name": "Interpolation Preview",
   "id": "simple-field-interpolation",
-  "fieldTypes": ["Symbol"],
+  "fieldTypes": [
+    "Symbol"
+  ],
   "srcdoc": "./dist/index.html",
-  "sidebar": false
+  "sidebar": false,
+  "parameters": {
+    "instance": [
+      {
+        "id": "docsUrl",
+        "type": "Symbol",
+        "name": "Documentation URL",
+        "description": "The usage and variables documentation page.",
+        "default": "https://sumupteam.atlassian.net/wiki/spaces/DEV/pages/549257252/Website+variables",
+        "required": true
+      }
+    ]
+  }
 }

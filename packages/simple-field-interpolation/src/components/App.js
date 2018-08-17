@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import { h, Component } from 'preact';
+import { get } from 'lodash';
 
 import Input from './Input';
 import Preview from './Preview';
@@ -15,6 +16,14 @@ export default class App extends Component {
       value: props.field.getValue(),
       preview: {},
       error: ''
+    };
+
+    this.config = {
+      docsUrl: get(
+        props,
+        'parameters.instance.docsUrl',
+        'https://sumupteam.atlassian.net/wiki/spaces/DEV/pages/549257252/Website+variables'
+      )
     };
   }
 
@@ -74,7 +83,7 @@ export default class App extends Component {
       <div>
         <Input onInput={this.handleChange} value={value} id="extension-input" />
         <Error>{error}</Error>
-        <Preview preview={preview} />
+        <Preview preview={preview} docsUrl={this.config.docsUrl} />
       </div>
     );
   }
