@@ -24,13 +24,9 @@ function initExtension(extension) {
   const inputEl = document.getElementById('extension-input');
   const errorEl = document.getElementById('extension-error');
 
-  // TODO: Figure out, why `parameters` is undefined.
   const { field, entry, space, parameters } = extension;
   const { locale } = field;
-  // const { imageFieldId, maxWidth, maxHeight } = parameters.instance;
-  const imageFieldId = 'desktop';
-  const maxWidth = '15';
-  const maxHeight = '15';
+  const { imageFieldId, maxWidth, maxHeight } = parameters.instance;
 
   const imageField = entry.fields[imageFieldId];
 

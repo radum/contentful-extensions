@@ -30,7 +30,10 @@ export default class App extends Component {
               return allLinks;
             }
             const { domain, country } = website;
-            const link = `https://${domain}/${slug}/`;
+            const link =
+              slug === '/'
+                ? `https://${domain}/`
+                : `https://${domain}/${slug}/`;
             allLinks.push({ locale, link, country });
             return allLinks;
           }, [])

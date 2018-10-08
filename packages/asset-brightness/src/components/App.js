@@ -1,6 +1,5 @@
 // eslint-disable-next-line no-unused-vars
 import { h, Component } from 'preact';
-import { get } from 'lodash';
 
 import loadImage from '../lib/load-image';
 import loadVideo from '../lib/load-video';
@@ -19,14 +18,13 @@ export default class App extends Component {
   constructor(props) {
     super(props);
 
-    const { field } = props;
+    const { field, parameters } = props;
 
     this.locale = field.locale;
 
-    // FIXME: Figure out, why `parameters` is undefined.
     this.config = {
-      assetFieldId: get(props, 'parameters.instance.assetFieldId', 'desktop'),
-      threshold: get(props, 'parameters.instance.threshold', 135)
+      assetFieldId: parameters.instance.assetFieldId,
+      threshold: parameters.instance.threshold || 135
     };
 
     this.state = {

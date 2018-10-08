@@ -39,10 +39,10 @@ export default class App extends Component {
    */
   handleClick = event => {
     const { value } = event.target;
-    const currentValues = this.state.values
-    const newValues = includes(currentValues, value) ?
-      reject(currentValues, v => v === value) :
-      concat(currentValues, value);
+    const currentValues = this.state.values;
+    const newValues = includes(currentValues, value)
+      ? reject(currentValues, v => v === value)
+      : concat(currentValues, value);
     this.setState({ values: newValues });
 
     if (isEmpty(newValues)) {
