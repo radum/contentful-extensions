@@ -13,6 +13,7 @@ export const CARD_SCHEMES = [
   'maestro',
   'mastercard',
   'nfc',
+  'unionPay',
   'visa',
   'visaElectron',
   'vpay'
@@ -22,6 +23,7 @@ export const LABELS = {
   visa: 'Visa',
   vpay: 'VPay',
   visaElectron: 'Visa Electron',
+  unionPay: 'Union Pay',
   mastercard: 'MasterCard',
   maestro: 'Maestro',
   amex: 'AMEX',
