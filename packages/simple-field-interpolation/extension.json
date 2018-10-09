@@ -13,7 +13,6 @@
         "type": "Symbol",
         "name": "Documentation URL",
         "description": "The usage and variables documentation page.",
-        "default": "https://sumupteam.atlassian.net/wiki/spaces/DEV/pages/549257252/Website+variables",
         "required": true
       }
     ]

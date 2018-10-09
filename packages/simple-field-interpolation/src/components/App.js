@@ -1,6 +1,5 @@
 // eslint-disable-next-line no-unused-vars
 import { h, Component } from 'preact';
-import { get } from 'lodash';
 
 import Input from './Input';
 import Preview from './Preview';
@@ -12,18 +11,16 @@ export default class App extends Component {
   constructor(props) {
     super(props);
 
+    const { field, parameters } = props;
+
     this.state = {
-      value: props.field.getValue(),
+      value: field.getValue(),
       preview: {},
       error: ''
     };
 
     this.config = {
-      docsUrl: get(
-        props,
-        'parameters.instance.docsUrl',
-        'https://sumupteam.atlassian.net/wiki/spaces/DEV/pages/549257252/Website+variables'
-      )
+      docsUrl: parameters.instance.docsUrl
     };
   }
 
