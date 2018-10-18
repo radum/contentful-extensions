@@ -10,7 +10,7 @@ export default function ProductSelector({
 }) {
   return (
     <li class="pr-wrapper">
-      <input type="checkbox" class="pr-checkbox" id={id} {...props} />
+      <input class="pr-checkbox" id={id} {...props} />
       <label class="pr-label" for={id}>
         {promotionPrice && (
           <span class="pr-promo">Promo: {promotionPrice}</span>

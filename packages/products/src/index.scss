@@ -66,11 +66,15 @@ ul {
   border-radius: 5px;
   text-align: center;
   transition: all 0.2s ease-out;
+  max-width: 80px;
+  cursor: pointer;
 }
 
 .pr-img {
   display: block;
   margin-bottom: 5px;
+  width: 60px;
+  height: 60px;
 }
 
 .pr-promo {

@@ -66,15 +66,13 @@ export default class App extends Component {
             return undefined;
           }
 
-          if (key === 'name') {
-            return value['en-US'];
-          }
+          const localisedValue = value[locale] || value['en-US'];
 
           if (key === 'image') {
-            return `${value[locale].url}?w=80&h=80`;
+            return `${localisedValue.url}?w=80&h=80`;
           }
 
-          return value[locale];
+          return localisedValue;
         });
       })
     );
@@ -86,7 +84,7 @@ export default class App extends Component {
    * Handler for external field value changes (e.g. when multiple authors are
    * working on the same entry).
    */
-  handleValueChange = (values = []) => {
+  handleValueChange = values => {
     this.setState({ values, error: '' });
   };
 
@@ -95,22 +93,29 @@ export default class App extends Component {
    */
   handleClick = event => {
     const { value } = event.target;
-    const currentValues = this.state.values;
+    const fieldType = this.props.field.type;
+    const defaultValue = fieldType === 'Array' ? [] : '';
+    const currentValue = this.state.values || defaultValue;
+    let newValue = value;
 
-    const newValues = includes(currentValues, value)
-      ? reject(currentValues, v => v === value)
-      : concat(currentValues, value);
-    this.setState({ values: newValues });
+    if (fieldType === 'Array') {
+      newValue = includes(currentValue, value)
+        ? reject(currentValue, v => v === value)
+        : concat(currentValue, value);
+    }
 
-    if (isEmpty(newValues)) {
+    this.setState({ values: newValue });
+
+    if (isEmpty(newValue)) {
       this.props.field.removeValue();
     } else {
-      this.props.field.setValue(newValues);
+      this.props.field.setValue(newValue);
     }
   };
 
   // eslint-disable-next-line class-methods-use-this
   render(props, { values, products, error }) {
+    const fieldType = props.field.type === 'Array' ? 'checkbox' : 'radio';
     return (
       <div>
         {products.length ? (
@@ -123,9 +128,11 @@ export default class App extends Component {
                   onClick={this.handleClick}
                   checked={includes(values, productId)}
                   value={productId}
+                  name={`products-${this.props.field.locale}`}
                   label={name}
                   src={image}
                   price={price}
+                  type={fieldType}
                   promotionPrice={promotionPrice}
                 />
               )
