@@ -15,7 +15,7 @@ export default function ProductSelector({
         {promotionPrice && (
           <span class="pr-promo">Promo: {promotionPrice}</span>
         )}
-        <img src={src} alt={label} class="pr-img" />
+        {src && <img src={src} alt={label} class="pr-img" />}
         <span class="pr-hint cf-form-hint">{label}</span>
       </label>
     </li>

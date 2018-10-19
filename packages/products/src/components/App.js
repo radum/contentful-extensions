@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import { h, Component } from 'preact';
-import { isEmpty, reject, includes, concat, mapValues } from 'lodash';
+import { isEmpty, reject, includes, concat, mapValues, get, sortBy } from 'lodash';
 
 import ProductSelector from './ProductSelector';
 import Error from './Error';
@@ -54,9 +54,14 @@ export default class App extends Component {
 
     const productsWithImages = await Promise.all(
       products.items.map(async ({ fields }) => {
-        const { fields: imgFields } = await this.props.space.getAsset(
-          fields.image['en-US'].sys.id
-        );
+        const image = get(fields, 'image[en-US]');
+        let imgFields = {};
+
+        if (image) {
+          const asset = await this.props.space.getAsset(image.sys.id);
+          imgFields = asset.fields;
+        }
+
         const productWithImage = Object.assign({}, fields, {
           image: imgFields.file
         });
@@ -77,7 +82,7 @@ export default class App extends Component {
       })
     );
 
-    return productsWithImages;
+    return sortBy(productsWithImages, 'name');
   };
 
   /**
