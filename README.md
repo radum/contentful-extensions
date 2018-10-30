@@ -1,3 +1,5 @@
+**[FORK](https://github.com/sumup/contentful-extensions/commit/d68f6a0e6d0de20102d4a1c64d4916c84e33c3e9) with my changes.**
+
 <div align="center">
 
 # SumUp Contentful Extensions <!-- omit in toc -->
