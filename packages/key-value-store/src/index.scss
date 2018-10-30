@@ -1,0 +1,138 @@
+body {
+  margin: 0;
+}
+
+.c-table {
+  &.c-table__header {
+    table-layout: fixed;
+    border-collapse: separate;
+  }
+
+  thead {
+    color: #909399;
+    font-weight: 500;
+  }
+
+  tr {
+    background-color: #fff;
+  }
+
+  th {
+    white-space: nowrap;
+    overflow: hidden;
+    user-select: none;
+    background-color: #fff;
+    padding: 12px 0;
+    min-width: 0;
+    box-sizing: border-box;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    position: relative;
+    text-align: left;
+  }
+
+  th.is-leaf {
+    border-bottom: 1px solid #ebeef5;
+  }
+
+  th.is-right {
+    text-align: right;
+  }
+
+  th div {
+    display: inline-block;
+    box-sizing: border-box;
+    text-overflow: ellipsis;
+  }
+
+  th > .cell {
+    position: relative;
+    word-wrap: normal;
+    vertical-align: middle;
+    width: 100%;
+  }
+
+  .cell {
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    word-break: break-all;
+    line-height: 23px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  tbody {
+    tr:hover > td {
+      background-color: #f5f7fa;
+    }
+
+    td {
+      transition: background-color .25s ease;
+      border-bottom: 1px solid #ebeef5;
+      padding: 12px 0;
+      min-width: 0;
+      box-sizing: border-box;
+      text-overflow: ellipsis;
+      vertical-align: middle;
+      position: relative;
+      text-align: left;
+    }
+
+    td.is-right {
+      text-align: right;
+    }
+  }
+}
+
+.c-button {
+  display: inline-block;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid #dcdfe6;
+  -webkit-appearance: none;
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  margin: 0;
+  transition: .1s;
+  font-weight: 500;
+  font-size: 14px;
+
+  &.is-trash-svg svg {
+    width: 12px;
+  }
+
+  &.is-circle {
+    border-radius: 50%;
+    padding: 12px;
+    padding: 8px 9px;
+  }
+}
+
+.c-button--danger {
+  color: #fff;
+  background-color: #f56c6c;
+  border-color: #f56c6c;
+}
+
+
+.c-table__header-wrapper {
+  margin-bottom: 2rem;
+}
+
+.c-table__header-wrapper,
+.c-footer {
+  max-width: 336px;
+  margin-bottom: 2rem;
+}
+
+.c-footer {
+	display: flex;
+	flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: flex-end;
+}

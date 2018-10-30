@@ -1,6 +1,6 @@
 module.exports = {
-  extends: ['airbnb-base', 'plugin:jest/recommended', 'prettier'],
-  plugins: ['prettier', 'jest'],
+  extends: ['airbnb-base', 'plugin:jest/recommended'],
+  plugins: ['jest'],
   rules: {
     'no-use-before-define': ['error', { functions: false }],
     'no-underscore-dangle': 'off',
@@ -8,19 +8,12 @@ module.exports = {
     'max-len': [
       'error',
       {
-        code: 80,
+        code: 160,
         tabWidth: 2,
         ignoreComments: true,
         ignoreUrls: true
       }
-    ],
-    'prettier/prettier': [
-      'error',
-      {
-        singleQuote: true
-      }
-    ],
-    'import/prefer-default-export': 0
+    ]
   },
   parser: 'babel-eslint',
   parserOptions: {

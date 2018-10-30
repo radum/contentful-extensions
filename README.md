@@ -79,7 +79,7 @@ Refer to the [official SDK documentation](https://github.com/contentful/ui-exten
 We use [`lerna`](https://github.com/lerna/lerna) and [`yarn` workspaces](https://yarnpkg.com/lang/en/docs/workspaces/) under the hood to make developing and publishing our extensions a breeze. After you first clone the repo, you probably want to [bootstrap](https://github.com/lerna/lerna#bootstrap) all packages for development. Run the following command in the project root:
 
 ```bash
-yarn bootstrap
+npm run bootstrap
 ```
 
 This command will install the dependencies for all packages and link any cross-dependencies.
@@ -89,7 +89,7 @@ This command will install the dependencies for all packages and link any cross-d
 You can quickly bootstrap a new UI extension by running this command in the project root:
 
 ```bash
-yarn create:extension <EXTENSION_ID> "<EXTENSION_NAME>" <EXTENSION_TEMPLATE>
+npm run create:extension <EXTENSION_ID> "<EXTENSION_NAME>" <EXTENSION_TEMPLATE>
 ```
 
 This will create a new folder `./packages/<EXTENSION_ID>` with all the files your extension needs. The command will also install the basic dependencies for your extension, so you can jump straight into development.
@@ -103,7 +103,7 @@ Two different **extension templates** are available: [**basic**](https://github.
 We use [`gulp`](https://github.com/gulpjs/gulp) to build, bundle and serve all code. Styles are written in SASS and JavaScript in ES6+. To start a development server with automatic reloading, run the following command inside your extension folder:
 
 ```bash
-yarn dev
+npm run dev
 ```
 
 The development server is created by [`BrowserSync`](https://github.com/Browsersync/browser-sync), which generates a self-signed certificate to enable a secure `https` connection. This is important to get the extensions to work with Contentful's CSP policy. The first time you load the extension, you will likely get a security error. Simply add an exception for this certificate.
@@ -113,13 +113,13 @@ The development server is created by [`BrowserSync`](https://github.com/Browsers
 During development, the extension is served from `https://localhost:1234`. Once your extension is finished, you can publish it to Contentful by running the following command inside your extension folder:
 
 ```bash
-yarn cf:create --space-id <SPACE_ID> --environment-id <ENVIRONMENT_ID>
+npm run cf:create --space-id <SPACE_ID> --environment-id <ENVIRONMENT_ID>
 ```
 
 After you've published your extensions to a Contentful space for the first time, you need to run the following command in your extension folder to push any changes:
 
 ```bash
-yarn cf:update --space-id <SPACE_ID> --environment-id <ENVIRONMENT_ID> --version <VERSION>
+npm run cf:update --space-id <SPACE_ID> --environment-id <ENVIRONMENT_ID> --version <VERSION>
 ```
 
 Both commands will bundle your code and upload it to the Contentful space and environment you specified.

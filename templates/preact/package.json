@@ -8,15 +8,15 @@
     "build": "gulp build",
     "dev": "gulp dev",
     "bundle": "gulp bundle --production",
-    "cf:create": "yarn bundle && contentful extension create --descriptor extension.json",
-    "cf:update": "yarn bundle && contentful extension update --descriptor extension.json",
-    "test": "yarn test:lint-js && yarn test:unit",
+    "cf:create": "npm run bundle && contentful extension create --descriptor extension.json",
+    "cf:update": "npm run bundle && contentful extension update --descriptor extension.json",
+    "test": "npm run test:lint-js && npm run test:unit",
     "test:lint-js": "eslint --cache --quiet packages/**/**/*.js",
     "test:unit": "jest --coverage",
     "test:unit:watch": "jest --watch"
   },
   "dependencies": {
-    "preact": "^8.2.9"
+    "preact": "^8.3.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -27,9 +27,9 @@
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
     "babelify": "^8.0.0",
-    "browser-sync": "^2.24.4",
-    "browserify": "^16.2.2",
-    "contentful-cli": "^0.14.2",
+    "browser-sync": "^2.26.3",
+    "browserify": "^16.2.3",
+    "contentful-cli": "^0.16.1",
     "del": "^3.0.0",
     "gulp": "^4.0.0",
     "gulp-inline-source": "^3.1.0",

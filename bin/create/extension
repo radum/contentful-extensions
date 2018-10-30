@@ -20,4 +20,4 @@ find ${extension_path} -type f -iname "*.json" -exec sed -i.bak "s/<EXTENSION_ID
 find ${extension_path} -type f \( -iname "*.json" -o -iname "*.md" \) -exec sed -i.bak "s/<EXTENSION_NAME>/$extension_name/g" {} \;
 rm ${extension_path}/*.bak
 
-yarn bootstrap
+npm run bootstrap

@@ -1,0 +1,7 @@
+{
+  "name": "Key Value Store",
+  "id": "key-value-store",
+  "fieldTypes": ["Object"],
+  "srcdoc": "./dist/index.html",
+  "sidebar": false
+}
